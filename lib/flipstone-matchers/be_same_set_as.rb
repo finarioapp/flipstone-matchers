@@ -3,7 +3,7 @@ RSpec::Matchers.define :be_same_set_as do |expected|
     Set.new(actual) == Set.new(expected)
   end
 
-  failure_message_for_should do |actual|
+  failure_message do |actual|
     <<-message
 expected #{actual.inspect} have same set of elements as #{expected.inspect}.
   actual values: #{actual.to_a.inspect}

@@ -43,7 +43,7 @@ RSpec::Matchers.define :match_an_email do
     @email_field && matched
   end
 
-  failure_message_for_should do |actual|
+  failure_message do |actual|
     if @email_field.blank?
       "No email field specified. Did you mean should match_an_email.subject ?"
     elsif @count
@@ -63,7 +63,7 @@ RSpec::Matchers.define :match_an_email do
     end
   end
 
-  failure_message_for_should_not do |actual|
+  failure_message_when_negated do |actual|
     message = []
     message << "Found #{@to_email} email with #{@email_field} matching #{actual}"
     message << "The matching items where: ["

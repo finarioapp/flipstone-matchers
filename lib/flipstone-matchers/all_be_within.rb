@@ -12,7 +12,7 @@ RSpec::Matchers.define :all_be_within do |allowable_delta|
     actual_array.zip(@expected_array).all? { |left, right| within?(left, right, allowable_delta)}
   end
 
-  failure_message_for_should do |actual_array|
+  failure_message do |actual_array|
     "Expected all of #{actual_array} to be within #{allowable_delta} of #{@expected_array}"
   end
 end

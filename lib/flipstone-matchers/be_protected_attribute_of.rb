@@ -20,7 +20,7 @@ RSpec::Matchers.define :be_protected_attribute_of do |model_class, value|
     !@mass_assignable && @updateable && !@cleared_without_request
   end
 
-  failure_message_for_should do |attribute|
+  failure_message do |attribute|
     errors = ["Expected #{attribute} to be a protected attribute"]
 
     if @mass_assignable

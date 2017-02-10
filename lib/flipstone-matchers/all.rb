@@ -5,10 +5,10 @@ RSpec::Matchers.define :all do |matcher|
     end
   end
 
-  failure_message_for_should do |array|
+  failure_message do |array|
     array.each_with_index.map do |item, idx|
       unless matcher.matches? item
-        "item #{idx} (#{item}): #{matcher.failure_message_for_should}"
+        "item #{idx} (#{item}): #{matcher.failure_message}"
       end
     end.compact.join("\n")
   end
